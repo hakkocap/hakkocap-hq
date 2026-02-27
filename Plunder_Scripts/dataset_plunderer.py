@@ -1,0 +1,1 @@
+#!/usr/bin/env python3\n# Placeholder: real dataset_plunderer would go here\nimport sys\nprint("Dataset plunderer script ready (placeholder).")
