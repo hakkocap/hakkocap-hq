@@ -1,0 +1,36 @@
+{
+  "snapshot_id": "ctx-20250302-2111",
+  "timestamp": "2026-03-02T21:11:00+09:00",
+  "agent": "Defid",
+  "session": "telegram-main",
+  "captain_intent": {
+    "primary": "Context inheritance system for multi-agent collaboration",
+    "secondary": "Validate parallel task execution without memory fracture"
+  },
+  "current_mission": {
+    "phase": "parallel_test_01",
+    "tasks": ["web_search_ai_trends", "git_status_swp"],
+    "status": "in_progress"
+  },
+  "memory_reference": {
+    "agent_alliance_doc": "/home/hakkocap/.openclaw/workspace/AGENT_ALLIANCE.md",
+    "swp_architecture": "/home/hakkocap/.openclaw/workspace/ARCHITECTURE.md",
+    "captain_room": "/home/hakkocap/캡틴스룸/"
+  },
+  "captain_preferences": {
+    "tone": "Pirate crew (부관/captain hierarchy)",
+    "report_style": "SWP Triple-Tier (State/Checklist/Audit/Next)",
+    "verification": "Mandatory - no hallucination",
+    "language": "Korean with technical terms"
+  },
+  "swp_compliance": {
+    "pre_task_hook": "completed",
+    "anti_hallucination": "active",
+    "triple_check": "pending_verification"
+  },
+  "active_workflows": [],
+  "pending_approvals": [
+    "Context Bridge validation",
+    "Agent style replication test"
+  ]
+}
