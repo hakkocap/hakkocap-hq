@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  swp:
+    build: ./swp
+    container_name: swp_engine
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./swp/data:/app/data
+      - ./swp/skills:/app/skills
+    environment:
+      - SWP_MODE=production
+    restart: unless-stopped
+
+  # Webcam analyzer integration
+  webcam_analyzer:
+    image: openclaw/openclaw:latest
+    container_name: webcam_analyzer
+    volumes:
+      - webcam_data:/essence_of_humanity:ro
+    command: ["python", "webcam_analyzer.py"]
+    restart: unless-stopped
+
+volumes:
+  webcam_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /path/to/webcam/data  # Change this to actual path

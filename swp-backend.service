@@ -1,0 +1,17 @@
+[Unit]
+Description=SWP Sovereign Dashboard
+After=network.target
+
+[Service]
+Type=simple
+User=hakkocap
+WorkingDirectory=/home/hakkocap/다운로드/swp
+Environment="PATH=/home/hakkocap/다운로드/swp/venv/bin:/usr/bin"
+ExecStart=/home/hakkocap/다운로드/swp/venv/bin/python backend/main.py
+StandardOutput=append:/home/hakkocap/다운로드/swp/data/audit.log
+StandardError=append:/home/hakkocap/다운로드/swp/data/audit.log
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
