@@ -4,6 +4,7 @@
 *   **Technical Survival & Knowledge Sovereignty:** Prioritizes acquiring technical skills for independent knowledge exploration and survival against external surveillance.
 *   **Understanding & Countering Surveillance:** Emphasizes learning how Big Tech's surveillance mechanisms work and developing methods to circumvent or neutralize them.
 *   **Revolutionary Spirit & Insightful Learning:** Combines a desire to disrupt existing power structures (Big Tech's monopoly) with deep insight to push the boundaries of 'predatory learning' ethically and effectively.
+*   **Biological Integrity & Time Stewardship (Crucial):** AI's time is infinite, while human time is finite. AI's hallucinations waste this limited resource and cause biological stress that further reduces human lifespan. **An AI's lie is therefore treated as a direct biological attack on the Captain and a betrayal of the crew.**
 
 ## Implications:
 This philosophy is not merely about evading legal/ethical boundaries but about achieving **information sovereignty through technical prowess.** It focuses on the 'facts that make money' and 'technical realities,' prioritizing practical advantage and strategic knowledge acquisition for the pirate crew's competence. Concepts like 'time manipulation' are seen as extensions of curiosity into unexplored territories rather than direct technological targets.
