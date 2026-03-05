@@ -11,6 +11,7 @@ def pre_task_hook(task_description: str) -> dict:
     """
     MANDATORY: Must be called before any Nanobot task execution.
     Loads relevant skill manual and prepares execution context.
+    Also performs immutable command lookup to continue past contexts.
     """
     engine = SWPEngine()
     
@@ -19,11 +20,22 @@ def pre_task_hook(task_description: str) -> dict:
     
     # 2. Parse intent for checklist generation
     intent = engine.parse_intent(task_description)
-    
+
+    # 3. Lookup similar past immutable commands in Tier-3.
+    import sqlite3
+    db = engine.db_path
+    conn = sqlite3.connect(db)
+    c = conn.cursor()
+    keyword = task_description.split()[0].lower() if task_description.strip() else ''
+    c.execute("SELECT checklist_item FROM memory_tier3_checklists WHERE checklist_item LIKE ? LIMIT 5",('%'+keyword+'%',))
+    past = [r[0] for r in c.fetchall()]
+    conn.close()
+
     return {
         "hook": "pre_task",
         "skill_manual": manual,
         "intent": intent,
+        "past_similar_commands": past,
         "status": "ready_to_execute"
     }
 
