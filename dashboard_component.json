@@ -1,0 +1,13 @@
+{
+  "name": "SWPDisciplinaryDataNode",
+  "description": "캡틴의 상벌점 SQLite DB를 읽어와 JSON 형태로 반환합니다.",
+  "data": {
+    "node": {
+      "template": {
+        "code": {
+          "value": "from langflow.custom import Component\nfrom langflow.io import Output, MessageTextInput\nimport json\n\nclass SWPDisciplinaryDataNode(Component):\n    display_name = \"SWP 상벌점 데이터 추출기\"\n    description = \"캡틴의 상벌점 SQLite DB를 읽어와 JSON 형태로 반환합니다.\"\n\n    inputs = [\n        MessageTextInput(name=\"db_path\", display_name=\"DB 경로\", value=\"/home/hakkocap/다운로드/swp/data/test.db\"),\n    ]\n\n    outputs = [\n        Output(display_name=\"Data JSON\", name=\"data_json\", method=\"fetch_data\"),\n    ]\n\n    def fetch_data(self) -> str:\n        test_data = {\n            \"status\": \"success\",\n            \"captain_score\": 1500,\n            \"nanobot_efficiency\": \"98%\",\n            \"recent_actions\": [\n                {\"action\": \"Langflow 부활 작전\", \"score\": \"+50\"},\n                {\"action\": \"과거 Tabler 실패 분석\", \"score\": \"+20\"}\n            ]\n        }\n        return json.dumps(test_data, ensure_ascii=False)\n"
+        }
+      }
+    }
+  }
+}

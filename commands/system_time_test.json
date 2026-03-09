@@ -1,0 +1,21 @@
+{
+  "command_id": "sys_test_1772891085",
+  "timestamp": "2026-03-07T22:44:45+09:00",
+  "from": "nano",
+  "to": "offni",
+  "command": "system_time_report",
+  "parameters": {
+    "action": "현재 시스템 시간 보고",
+    "format": "HH:MM:SS (24시간 형식)",
+    "precision": "초 단위까지"
+  },
+  "expectations": {
+    "output_format": "{\"command_id\": \"sys_test_1772891085\", \"result\": {\"system_time\": \"HH:MM:SS\", \"status\": \"success\"}}",
+    "timeout_seconds": 25,
+    "verification_method": "보고된 시간이 실제 시간과 ±60초 이내인지 확인",
+    "verification_data": "실제 시간: 22:44:45"
+  },
+  "responsibility_note": "이 명령은 오프니 권한 내(시스템 정보 읽기)에 속함. 권한 문제 발생 시 나노의 명령 설계 책임.",
+  "priority": "test",
+  "authority": "captain_direct_order"
+}

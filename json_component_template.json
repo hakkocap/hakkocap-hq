@@ -1,0 +1,41 @@
+{
+  "name": "SWPDisciplinaryDataNode",
+  "description": "SWP 상벌점 데이터 추출기",
+  "type": "component",
+  "data": {
+    "nodes": [
+      {
+        "id": "disciplinary_data_source",
+        "type": "custom_component",
+        "data": {
+          "node": {
+            "display_name": "SWP 상벌점 데이터 추출기",
+            "description": "캡틴의 상벌점 SQLite DB를 읽어와 JSON 형태로 반환",
+            "template": {
+              "inputs": [
+                {
+                  "name": "db_path",
+                  "type": "str",
+                  "required": true,
+                  "placeholder": "/home/hakkocap/다운로드/swp/data/test.db",
+                  "default": "/home/hakkocap/다운로드/swp/data/test.db"
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "disciplinary_data",
+                  "type": "str"
+                }
+              ]
+            },
+            "code": "def fetch_data(db_path):\n    import json\n    import sqlite3\n    import os\n    \n    # 테스트 데이터 (실제 DB 연동 전)\n    test_data = {\n        \"status\": \"success\",\n        \"captain_score\": 1500,\n        \"nanobot_efficiency\": \"98%\",\n        \"recent_actions\": [\n            {\"crew\": \"나노\", \"action\": \"진행 보고\", \"points\": 2, \"time\": \"08:30\"},\n            {\"crew\": \"오프니\", \"action\": \"코드 작성\", \"points\": 3, \"time\": \"08:15\"},\n            {\"crew\": \"데피디\", \"action\": \"통신 프로토콜\", \"points\": 5, \"time\": \"07:45\"}\n        ]\n    }\n    \n    # 실제 DB 접근 시도 (파일 존재할 경우)\n    if os.path.exists(db_path):\n        try:\n            conn = sqlite3.connect(db_path)\n            cursor = conn.cursor()\n            # 실제 쿼리 실행 (구조에 맞게 수정 필요)\n            cursor.execute(\"SELECT * FROM disciplinary_records LIMIT 5\")\n            rows = cursor.fetchall()\n            conn.close()\n            \n            if rows:\n                # 실제 데이터 변환\n                test_data[\"real_data\"] = rows\n                test_data[\"data_source\"] = \"real_database\"\n        except:\n            test_data[\"data_source\"] = \"mock_fallback\"\n    else:\n        test_data[\"data_source\"] = \"mock_no_db\"\n    \n    return json.dumps(test_data, ensure_ascii=False)"
+          }
+        }
+      }
+    ],
+    "edges": []
+  },
+  "version": "1.0",
+  "created_at": "2026-03-08T08:52:00Z",
+  "author": "offni"
+}

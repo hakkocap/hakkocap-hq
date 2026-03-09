@@ -1,0 +1,7 @@
+# SWP 스마트 백업 - 대용량 파일 제외
+legion/
+venv/
+*.db
+*.log
+__pycache__/
+*.pdf

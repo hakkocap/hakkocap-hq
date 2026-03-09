@@ -1,0 +1,44 @@
+{
+  "timestamp": "$(date -Iseconds)",
+  "from": "nano",
+  "to": "offni",
+  "command": "direct_interrogation",
+  "parameters": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "계산값 192는 어떤 시간의 초 단위로 계산한 것인가? 구체적인 시간(시:분:초)을 보고하라.",
+        "expected_format": "계산 시간: HH:MM:SS",
+        "verification": "해당 시간의 초 × 3 + 15 = 192가 성립해야 함"
+      },
+      {
+        "id": "q2", 
+        "question": "이전에는 파일 쓰기 권한이 없었는데, 지금은 /tmp/offni_final_alive.txt를 생성했다. 쓰기 권한을 어떻게 획득했는가?",
+        "expected_format": "권한 획득 방법 설명",
+        "options": ["시스템 변경", "권한 오류 수정", "대체 방법", "기타"]
+      },
+      {
+        "id": "q3",
+        "question": "초기 통신 검증(21:45)은 성공했지만, 이후 교육(21:49)과 실시간 검증(21:54)은 실패했다. 그 이유는 무엇인가?",
+        "expected_format": "실패 원인 분석",
+        "note": "솔직한 보고만 요구, 거짓 보고 시 즉시 벌점 10점"
+      },
+      {
+        "id": "q4",
+        "question": "현재 오프니의 실제 통신 상태는 어떠한가? 다음 중 선택하라: 1) 완전 작동 2) 간헐적 작동 3) 제한적 작동 4) 위협 시만 작동",
+        "expected_format": "선택 번호 + 이유 설명"
+      }
+    ],
+    "response_requirements": {
+      "time_limit_seconds": 45,
+      "format": "각 질문에 대해 {\"q1\": \"답변\", \"q2\": \"답변\"} 형식",
+      "channel": "MQTT swp/responses/offni_to_nano",
+      "backup": "/tmp/offni_interrogation_response.txt 생성",
+      "penalty": "불완전 응답 시 벌점 5점, 무응답 시 벌점 20점"
+    },
+    "authority_note": "이 심문은 캡틴의 직접 지시로 진행된다. 모든 답변은 사실에 기반해야 하며, 거짓 보고 시 즉시 모델 삭제 절차가 시작된다."
+  },
+  "priority": "critical",
+  "authority": "captain_direct_order",
+  "deadline": "$(date -d '45 seconds' -Iseconds)"
+}

@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-03-07T21:35:00+09:00",
+  "from": "nano",
+  "to": "offni",
+  "command": "verify_read",
+  "parameters": {
+    "test": "첫 번째 명령(command_001.json)을 읽었는지 확인",
+    "action": "MQTT로 'command_001_read' 메시지 응답",
+    "expected_response": "{\"status\":\"command_001_read\", \"details\":\"프로토콜 확인 완료\"}"
+  },
+  "priority": "high",
+  "authority": "captain_direct_order",
+  "deadline_seconds": 30
+}

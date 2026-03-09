@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-03-07T21:29:30+09:00",
+  "from": "nano",
+  "to": "offni",
+  "command": "acknowledge_protocol",
+  "parameters": {
+    "message": "통신 프로토콜 수신 확인 요청",
+    "action": "응답으로 확인하라"
+  }
+}

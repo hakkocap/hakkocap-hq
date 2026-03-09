@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>캡틴스 대시보드 테스트</title>
+    <style>
+        body { font-family: Arial; background: #1a1a1a; color: white; padding: 20px; }
+        .test-result { background: #2d2d2d; padding: 15px; border-radius: 5px; margin: 10px 0; }
+        .success { color: #44ff44; }
+        .warning { color: #ffaa00; }
+        .error { color: #ff4444; }
+    </style>
+</head>
+<body>
+    <h1>🏴‍☠️ 정적 파일 마운트 테스트</h1>
+    
+    <div class="test-result">
+        <h2>테스트 1: 기본 HTML 렌더링</h2>
+        <p class="success">✅ HTML 파일 정상 로드됨</p>
+        <p>이 파일이 Langflow 정적 디렉토리에 마운트되면 대시보드 UI로 사용 가능</p>
+    </div>
+    
+    <div class="test-result">
+        <h2>테스트 2: 데이터 바인딩</h2>
+        <p class="warning">⚠️ JavaScript 필요 (React 컴포넌트로 확장)</p>
+        <p>현재 점수: <span id="score">1500</span> 점</p>
+        <p>나노봇 효율: <span id="efficiency">98%</span></p>
+    </div>
+    
+    <div class="test-result">
+        <h2>테스트 3: Phase 1 연동</h2>
+        <p class="warning">⚠️ Phase 1 노드 데이터 연동 필요</p>
+        <p>노드 ID: ff7f52aabf43...</p>
+        <p>데이터 소스: SWPDisciplinaryDataNode</p>
+    </div>
+    
+    <script>
+        // 간단한 데이터 바인딩 테스트
+        document.getElementById('score').textContent = '1500';
+        document.getElementById('efficiency').textContent = '98%';
+        
+        console.log('캡틴스 대시보드 테스트 로드 완료');
+    </script>
+</body>
+</html>

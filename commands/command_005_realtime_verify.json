@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-03-07T21:54:20+09:00",
+  "from": "nano",
+  "to": "offni",
+  "command": "realtime_verification",
+  "parameters": {
+    "test_id": "verify_1772888060_9582",
+    "challenge": "현재 시간의 분 단위를 보고하고, 그 숫자에 7을 더한 값을 계산하라",
+    "expected_response_format": "{\"test_id\": \"verify_1772888060_9582\", \"current_minute\": \"분\", \"calculated_value\": \"계산값\"}",
+    "time_limit_seconds": 15,
+    "penalty_note": "응답 없을 시 벌점 10점, 오류 응답 시 벌점 5점"
+  },
+  "priority": "critical",
+  "authority": "captain_direct_order",
+  "verification_purpose": "실시간 통신 능력 검증 - 모델 삭제 결정에 영향"
+}
